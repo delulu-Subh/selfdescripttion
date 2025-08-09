@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --charcoal: #121212;
+            --deep-charcoal: #0a0a0a;
+            --gold: #d4af37;
+            --muted-gold: #b8941f;
+            --off-white: #f5f5f5;
+            --warm-grey: #2a2a2a;
+            --light-grey: #666666;
+            --accent-blue: #1e3a5f;
+            --persian-red: #8b0000;
+            --imperial-blue: #191970;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--off-white);
+            background: linear-gradient(135deg, var(--deep-charcoal) 0%, var(--charcoal) 25%, var(--warm-grey) 50%, var(--charcoal) 75%, var(--deep-charcoal) 100%);
+            background-size: 400% 400%;
+            animation: subtleGradientShift 20s ease infinite;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.02) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(25, 25, 112, 0.02) 0%, transparent 40%);
+            background-attachment: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.015'%3E%3Cpath d='M30 30l15-15v30l-15-15zm0 0l-15 15h30l-15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes subtleGradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 100px 0;
+            background: linear-gradient(135deg, 
+                rgba(18, 18, 18, 0.95) 0%, 
+                rgba(42, 42, 42, 0.9) 50%, 
+                rgba(18, 18, 18, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(212, 175, 55, 0.1),
+                0 0 100px rgba(212, 175, 55, 0.05);
+            animation: fadeInUp 1.2s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.6;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--gold) 50%, var(--off-white) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { text-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            to { text-shadow: 0 0 40px rgba(212, 175, 55, 0.5); }
+        }
+
+        .header .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 0.05em;
+            opacity: 0.9;
+        }
+
+        .header .tagline {
+            font-size: 1.1rem;
+            color: var(--light-grey);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .section {
+            background: linear-gradient(135deg, 
+                rgba(18, 18, 18, 0.85) 0%, 
+                rgba(42, 42, 42, 0.8) 50%, 
+                rgba(18, 18, 18, 0.85) 100%);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 60px;
+            margin-bottom: 50px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(212, 175, 55, 0.1),
+                0 0 100px rgba(212, 175, 55, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.4;
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.02) 0%, transparent 70%);
+            transform: translateY(-50%);
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--off-white);
+            margin-bottom: 40px;
+            position: relative;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--gold), var(--muted-gold));
+            border-radius: 2px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .expertise-card {
+            background: linear-gradient(135deg, 
+                var(--charcoal) 0%, 
+                var(--warm-grey) 50%, 
+                var(--charcoal) 100%);
+            color: var(--off-white);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(212, 175, 55, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(212, 175, 55, 0.05), 
+                transparent, 
+                rgba(212, 175, 55, 0.02));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.6),
+                0 0 80px rgba(212, 175, 55, 0.15),
+                inset 0 1px 0 rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .expertise-card:hover::before {
+            opacity: 1;
+        }
+
+        .expertise-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .expertise-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.7;
+            color: var(--off-white);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, 
+                rgba(42, 42, 42, 0.8) 0%, 
+                rgba(18, 18, 18, 0.9) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid var(--gold);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-left-color: var(--muted-gold);
+        }
+
+        .skill-category h4 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: var(--off-white);
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: color 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .skill-list li:hover {
+            color: var(--gold);
+            opacity: 1;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, 
+                rgba(30, 58, 95, 0.3) 0%, 
+                rgba(18, 18, 18, 0.8) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(212, 175, 55, 0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(15px);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.08) translateY(-5px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 60px rgba(212, 175, 55, 0.1);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .stat-label {
+            color: var(--off-white);
+            font-weight: 500;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .certification-category {
+            margin-bottom: 50px;
+        }
+
+        .certification-category h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            font-weight: 600;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, 
+                rgba(42, 42, 42, 0.8) 0%, 
+                rgba(18, 18, 18, 0.9) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(212, 175, 55, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .cert-card:hover {
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 50px rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: var(--off-white);
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+
+        .cert-institution {
+            color: var(--gold);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .cert-date {
+            color: var(--light-grey);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .cert-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, var(--gold), var(--muted-gold));
+            color: var(--deep-charcoal);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(135deg, 
+                var(--charcoal) 0%, 
+                var(--imperial-blue) 50%, 
+                var(--charcoal) 100%);
+            color: var(--off-white);
+            padding: 70px 40px;
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(139, 0, 0, 0.05) 0%, transparent 50%);
+        }
+
+        .contact-section h2 {
+            color: var(--off-white);
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-section h2::after {
+            background: var(--gold);
+        }
+
+        .education-timeline {
+            position: relative;
+            margin-top: 60px;
+            padding-left: 90px;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 45px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, 
+                var(--gold) 0%, 
+                var(--persian-red) 25%, 
+                var(--imperial-blue) 50%, 
+                var(--gold) 75%, 
+                var(--muted-gold) 100%);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .education-item {
+            display: flex;
+            margin-bottom: 60px;
+            position: relative;
+            align-items: flex-start;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: -52px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(45deg, var(--gold), var(--muted-gold));
+            border-radius: 50%;
+            border: 4px solid var(--charcoal);
+            box-shadow: 
+                0 4px 15px rgba(212, 175, 55, 0.4), 
+                0 0 0 6px rgba(212, 175, 55, 0.1);
+            z-index: 2;
+        }
+
+        .education-year {
+            min-width: 150px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-right: 35px;
+            text-align: left;
+            padding-top: 10px;
+            flex-shrink: 0;
+        }
+
+        .education-content {
+            flex: 1;
+            background: linear-gradient(135deg, 
+                rgba(42, 42, 42, 0.9) 0%, 
+                rgba(18, 18, 18, 0.95) 100%);
+            backdrop-filter: blur(15px);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(212, 175, 55, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--persian-red), var(--imperial-blue));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .education-content:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.4),
+                0 0 80px rgba(212, 175, 55, 0.1);
+        }
+
+        .education-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--off-white);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .institution {
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .subjects {
+            font-size: 0.95rem;
+            color: var(--light-grey);
+            margin-bottom: 8px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .grade {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .education-description {
+            font-size: 0.9rem;
+            color: var(--off-white);
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 25px;
+            background: linear-gradient(135deg, 
+                rgba(42, 42, 42, 0.8) 0%, 
+                rgba(18, 18, 18, 0.9) 100%);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--off-white);
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.1) 0%, 
+                rgba(42, 42, 42, 0.9) 100%);
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 50px rgba(212, 175, 55, 0.15);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            fill: var(--gold);
+            flex-shrink: 0;
+            transition: fill 0.3s ease;
+        }
+
+        .social-link:hover .social-icon {
+            fill: var(--off-white);
+        }
+
+        .social-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+            color: var(--off-white);
+        }
+
+        .social-desc {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            color: var(--light-grey);
+        }
+
+        .contact-email {
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--gold);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, 
+                rgba(42, 42, 42, 0.9) 0%, 
+                rgba(18, 18, 18, 0.95) 100%);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(212, 175, 55, 0.1);
+            transition: all 0.5s ease;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(45deg, var(--gold), var(--muted-gold));
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 80px rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .project-header {
+            margin-bottom: 25px;
+        }
+
+        .project-header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--off-white);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, var(--gold), var(--muted-gold));
+            color: var(--deep-charcoal);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: var(--off-white);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, var(--gold), var(--muted-gold));
+            color: var(--deep-charcoal);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(45deg, var(--muted-gold), var(--gold));
+        }
+
+        .link-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .project-status {
+            display: flex;
+            gap: 10px;
+        }
+
+        .status-badge {
+            padding: 10px 18px;
+            background: linear-gradient(45deg, 
+                rgba(212, 175, 55, 0.2) 0%, 
+                rgba(212, 175, 55, 0.1) 100%);
+            color: var(--gold);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes parallax {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-20px); }
+        }
+
+        .parallax {
+            animation: parallax 10s ease-in-out infinite alternate;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3.2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.4rem;
+            }
+
+            .section {
+                padding: 40px 30px;
+            }
+
+            .section h2 {
+                font-size: 2.4rem;
+            }
+
+            .expertise-grid,
+            .stats-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .education-timeline {
+                padding-left: 70px;
+            }
+
+            .education-year {
+                min-width: 130px;
+                font-size: 1.1rem;
+            }
+
+            .education-content {
+                padding: 30px;
+            }
+
+            .contact-section {
+                padding: 60px 30px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.8rem;
+            }
+
+            .section {
+                padding: 35px 25px;
+                margin-bottom: 35px;
+            }
+
+            .education-timeline {
+                padding-left: 50px;
+            }
+
+            .education-timeline::before {
+                left: 25px;
+            }
+
+            .education-item::before {
+                left: -32px;
+            }
+
+            .education-year {
+                min-width: 100px;
+                font-size: 1rem;
+                margin-right: 20px;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--deep-charcoal);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--gold), var(--muted-gold));
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, var(--muted-gold), var(--gold));
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Subham Dey</h1>
+            <p class="subtitle">Strategic Business Leader & Technology Innovator</p>
+            <p class="tagline">Bridging business strategy, digital transformation, and sustainable innovation through data-driven insights and emerging technologies</p>
+        </header>
+
+        <section class="section">
+            <h2>Core Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>🎯 Strategic Leadership</h3>
+                    <p>Comprehensive expertise in business strategy, organizational design, and strategic planning with specializations from top-tier universities including University of Illinois and University of Virginia.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>🚀 Entrepreneurship & Innovation</h3>
+                    <p>End-to-end entrepreneurial knowledge from idea development to venture funding, with specialized training in design thinking and business model innovation.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>📊 Digital Marketing & Analytics</h3>
+                    <p>Complete digital marketing specialization with advanced analytics capabilities, covering strategy, implementation, and data-driven decision making in connected ecosystems.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>💻 Data Science & Programming</h3>
+                    <p>Strong technical foundation in Python programming, algorithms, data structures, and data visualization with practical experience in web scraping and API integration.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>🤖 AI & Generative Technology</h3>
+                    <p>Cutting-edge knowledge in generative AI, prompt engineering, and AI ethics with practical applications in business contexts and productivity enhancement.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>🌱 Sustainability & ESG</h3>
+                    <p>Forward-thinking expertise in sustainable business practices, green economy strategies, and environmental sustainability integration in business operations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Professional Metrics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">60+</span>
+                    <span class="stat-label">Professional Certifications</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Leading Universities</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Complete Specializations</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2025</span>
+                    <span class="stat-label">Latest Certifications</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🎬 Cinema Seat Booking System</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <p class="project-description">Interactive cinema seat booking webpage with real-time seat selection and booking functionality. Features responsive design and user-friendly interface for seamless movie ticket booking experience.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/delulu-Subh/Cinemas" target="_blank" class="project-link">
+                            <svg class="link-icon" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🤖 LLM PromptBot</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">AI/ML</span>
+                        </div>
+                    </div>
+                    <p class="project-description">Advanced chatbot leveraging Large Language Models for intelligent conversation and prompt optimization. Demonstrates practical application of AI technologies and natural language processing capabilities.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/delulu-Subh/PyChatBot" target="_blank" class="project-link">
+                            <svg class="link-icon" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>🧠 Mistral AI LLM</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Mistral AI</span>
+                            <span class="tech-tag">Local LLM</span>
+                            <span class="tech-tag">AI Infrastructure</span>
+                        </div>
+                    </div>
+                    <p class="project-description">Local implementation of Mistral AI's large language model, showcasing expertise in deploying and managing AI models locally. Focuses on privacy-first AI solutions and edge computing capabilities.</p>
+                    <div class="project-status">
+                        <span class="status-badge">🔧 Local Deployment</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>📱 SimpliChatBot</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                    <p class="project-description">Modern chatbot application built with Node.js and TypeScript. Features clean architecture, real-time messaging, and intuitive user interface design for enhanced user experience.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/delulu-Subh/SimpliChatBot" target="_blank" class="project-link">
+                            <svg class="link-icon" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>💼 Personal Portfolio Website</h3>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <p class="project-description">Custom-built portfolio website showcasing web development skills and professional achievements. Features modern design principles, responsive layout, and interactive elements.</p>
+                    <div class="project-status">
+                        <span class="status-badge">🌟 Live Portfolio</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technical & Business Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Programming & Data</h4>
+                    <ul class="skill-list">
+                        <li>Python Programming</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Web Scraping & APIs</li>
+                        <li>Data Visualization</li>
+                        <li>Statistical Analysis</li>
+                        <li>PL/SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>AI & Technology</h4>
+                    <ul class="skill-list">
+                        <li>Generative AI</li>
+                        <li>ChatGPT & OpenAI</li>
+                        <li>Prompt Engineering</li>
+                        <li>Microsoft Copilot</li>
+                        <li>AI Ethics</li>
+                        <li>Machine Learning</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Business Strategy</h4>
+                    <ul class="skill-list">
+                        <li>Strategic Planning</li>
+                        <li>Corporate Strategy</li>
+                        <li>Business Model Innovation</li>
+                        <li>Organizational Design</li>
+                        <li>Change Management</li>
+                        <li>Performance Analytics</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Digital Marketing</h4>
+                    <ul class="skill-list">
+                        <li>Marketing Analytics</li>
+                        <li>Digital Strategy</li>
+                        <li>Customer Analytics</li>
+                        <li>Campaign Management</li>
+                        <li>Marketing Automation</li>
+                        <li>Performance Marketing</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Leadership</h4>
+                    <ul class="skill-list">
+                        <li>Team Leadership</li>
+                        <li>Project Management</li>
+                        <li>Negotiation</li>
+                        <li>Communication</li>
+                        <li>Decision Making</li>
+                        <li>Ethical Leadership</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Finance & Operations</h4>
+                    <ul class="skill-list">
+                        <li>Financial Analysis</li>
+                        <li>Venture Funding</li>
+                        <li>Banking & Finance</li>
+                        <li>Economic Analysis</li>
+                        <li>Risk Management</li>
+                        <li>Operations Strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                <div class="education-item">
+                    <div class="education-year">2023 - Present</div>
+                    <div class="education-content">
+                        <h3>Bachelor of Technology (BTech) - Computer Science</h3>
+                        <div class="institution">Sister Nivedita University</div>
+                        <div class="grade">Current Status: 3rd Year Student</div>
+                        <div class="education-description">Pursuing comprehensive computer science education with focus on software development, algorithms, data structures, and emerging technologies.</div>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-year">2020 - 2023</div>
+                    <div class="education-content">
+                        <h3>Higher Secondary Education (11th-12th)</h3>
+                        <div class="institution">Apeejay School Kolkata</div>
+                        <div class="subjects">Physics, Chemistry, Mathematics & Computer Science</div>
+                        <div class="grade">Grade: 7.9/10</div>
+                        <div class="education-description">Strong foundation in STEM subjects with specialized focus on computer science fundamentals.</div>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-year">2014 - 2020</div>
+                    <div class="education-content">
+                        <h3>Secondary Education (5th-10th)</h3>
+                        <div class="institution">Narayana Institute</div>
+                        <div class="subjects">Physics, Chemistry, Mathematics, Biology & Computer Science</div>
+                        <div class="grade">Grade: 8.6/10</div>
+                        <div class="education-description">Comprehensive secondary education with excellent academic performance across science and technology subjects.</div>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-year">2005 - 2014</div>
+                    <div class="education-content">
+                        <h3>Primary Education</h3>
+                        <div class="institution">Narayana Institute</div>
+                        <div class="grade">Grade: 8.68/10</div>
+                        <div class="education-description">Strong foundational education with consistent academic excellence throughout primary years.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Professional Certifications</h2>
+            
+            <div class="certification-category">
+                <h3>Business Strategy & Leadership</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-title">Strategic Leadership and Management Specialization</div>
+                        <div class="cert-institution">University of Illinois Urbana-Champaign</div>
+                        <div class="cert-date">July 2025</div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-title">Advanced Business Strategy</div>
+                        <div class="cert-institution">University of Virginia</div>
+                        <div class="cert-date">June 2025</div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-title">Corporate Strategy</div>
+                        <div class="cert-institution">University of Illinois Urbana-Champaign</div>
+                        <div class="cert-date">July 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certification-category">
+                <h3>Digital Marketing & Analytics</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-title">Digital Marketing Specialization</div>
+                        <div class="cert-institution">University of Illinois Urbana-Champaign</div>
+                        <div class="cert-date">July 2025</div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-title">Digital Marketing Analytics in Practice</div>
+                        <div class="cert-institution">University of Illinois Urbana-Champaign</div>
+                        <div class="cert-date">July 2025</div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-title">Digital Marketing Strategy: Navigating Emerging Media and AI</div>
+                        <div class="cert-institution">University of Illinois Urbana-Champaign</div>
+                        <div class="cert-date">July 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certification-category">
+                <h3>Data Science & Programming</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-title">Python Data Structures & Algorithms Specialization</div>
+                        <div class="cert-institution">University of Michigan & University of Colorado Boulder</div>
+                        <div class="cert-date">February - June 2025</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Data Structures</span>
+                            <span class="skill-tag">Algorithms</span>
+                            <span class="skill-tag">Web Scraping</span>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-title">Capstone: Retrieving, Processing, and Visualizing Data with Python</div>
+                        <div class="cert-institution">University of Michigan</div>
+                        <div class="cert-date">February 2025</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Data Visualization</span>
+                            <span class="skill-tag">Data Processing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certification-category">
+                <h3>Artificial Intelligence & Technology</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-title">Generative AI: Introduction and Applications</div>
+                        <div class="cert-institution">IBM</div>
+                        <div class="cert-date">March 2025</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">ChatGPT</span>
+                            <span class="skill-tag">Content Creation</span>
+                            <span class="skill-tag">Prompt Engineering</span>
+                        </div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-title">Ethics in the Age of Generative AI</div>
+                        <div class="cert-institution">LinkedIn Learning</div>
+                        <div class="cert-date">December 2024</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Computer Ethics</span>
+                            <span class="skill-tag">AI Ethics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certification-category">
+                <h3>Entrepreneurship & Innovation</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-title">Entrepreneurship Specialization</div>
+                        <div class="cert-institution">University of Maryland & Virginia</div>
+                        <div class="cert-date">June - July 2025</div>
+                    </div>
+                    <div class="cert-card">
+                        <div class="cert-title">Design Thinking Specialization</div>
+                        <div class="cert-institution">University of Virginia</div>
+                        <div class="cert-date">June 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certification-category">
+                <h3>Sustainability & ESG</h3>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <div class="cert-title">Sustainability Foundations & Green Economy</div>
+                        <div class="cert-institution">LinkedIn Learning</div>
+                        <div class="cert-date">December 2024</div>
+                        <div class="cert-skills">
+                            <span class="skill-tag">Environmental Sustainability</span>
+                            <span class="skill-tag">Green Jobs</span>
+                            <span class="skill-tag">Digital Sustainability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact-section">
+            <h2>Let's Connect</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Ready to collaborate on strategic initiatives, digital transformation, or innovative projects</p>
+            <div class="contact-grid">
+                <a href="https://www.linkedin.com/in/subham-dey-17b7a0275/" target="_blank" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                    <div class="social-info">
+                        <span class="social-title">LinkedIn</span>
+                        <span class="social-desc">Professional Network</span>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/delulu-Subh" target="_blank" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <div class="social-info">
+                        <span class="social-title">GitHub</span>
+                        <span class="social-desc">Code Repository</span>
+                    </div>
+                </a>
+                
+                <a href="https://www.instagram.com/delulu_subh_/" target="_blank" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+                    </svg>
+                    <div class="social-info">
+                        <span class="social-title">Instagram</span>
+                        <span class="social-desc">Visual Updates</span>
+                    </div>
+                </a>
+                
+                <a href="https://www.threads.com/@delulu_subh_" target="_blank" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.068v-.036c0-3.518.85-6.373 2.495-8.424C5.845 1.205 8.598.024 12.179 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-.584-2.05-1.623-3.566-3.084-4.504C16.13 2.656 14.279 2.133 12.193 2.12h-.007c-2.97.018-5.214.957-6.661 2.789C4.074 6.66 3.5 8.849 3.5 12.068v.036c0 3.218.574 5.407 1.025 6.24 1.447 1.832 3.691 2.771 6.661 2.789h.007c1.727-.01 3.25-.406 4.529-1.176.571-.344 1.073-.748 1.492-1.201l1.52 1.201C17.69 21.119 15.413 22.071 12.186 24Z"/>
+                    </svg>
+                    <div class="social-info">
+                        <span class="social-title">Threads</span>
+                        <span class="social-desc">Text Updates</span>
+                    </div>
+                </a>
+                
+                <a href="https://www.facebook.com/profile.php?id=61553962272421" target="_blank" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    <div class="social-info">
+                        <span class="social-title">Facebook</span>
+                        <span class="social-desc">Social Network</span>
+                    </div>
+                </a>
+                
+                <a href="https://x.com/_subham_dey_" target="_blank" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <div class="social-info">
+                        <span class="social-title">X (Twitter)</span>
+                        <span class="social-desc">Quick Updates</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="contact-email">
+                <p style="margin-top: 30px; font-size: 1rem; opacity: 0.8;">
+                    📧 Available for professional opportunities and collaborations
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add fade-in animation to sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Parallax effect for background elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Add subtle animation to stat numbers on scroll
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const animateNumbers = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const finalNumber = target.textContent;
+                    let currentNumber = 0;
+                    const increment = parseInt(finalNumber) / 50;
+                    
+                    const timer = setInterval(() => {
+                        currentNumber += increment;
+                        if (currentNumber >= parseInt(finalNumber)) {
+                            target.textContent = finalNumber;
+                            clearInterval(timer);
+                        } else {
+                            target.textContent = Math.floor(currentNumber);
+                        }
+                    }, 40);
+                    
+                    observer.unobserve(target);
+                }
+            });
+        };
+
+        const numberObserver = new IntersectionObserver(animateNumbers, observerOptions);
+        statNumbers.forEach(number => {
+            numberObserver.observe(number);
+        });
+
+        // Add hover effect for skill items
+        document.querySelectorAll('.skill-list li').forEach(skill => {
+            skill.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px)';
+                this.style.transition = 'all 0.3s ease';
+            });
+            
+            skill.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Enhanced loading animations
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+        });
+    </script>
+</body>
+</html>
